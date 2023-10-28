@@ -1,0 +1,68 @@
+#%RAML 1.0
+title: jc-industry-eapi
+mediaType: 
+  - application/json
+version: 1.0.0
+protocols: 
+  - HTTP
+  - HTTPS  
+  
+types:
+  user : !include /dataTypes/user.raml
+  customer: !include /dataTypes/customer.raml
+
+traits:
+  client-id-required: !include /traits/securityTraits.raml
+  error-responses: !include /traits/errorTraits.raml
+
+resourceTypes:
+  resources: !include /resourceType/methodResourceType.raml
+
+
+/users: 
+  type: 
+    resources:
+      resourcePathName: Users
+      getExample: !include /examples/users.json
+  get:
+
+
+/user:
+  type: 
+    resources:
+      resourceName: User
+      dataType: user
+  post:
+    
+  /{id}:
+    type:
+      resources:
+        resourceName: User
+        dataType: user
+    patch:
+    delete:
+      
+
+/customers:
+  type:
+    resources:
+      resourcePathName: customers
+      getExample: !include /examples/customers.json
+  get:
+
+
+/customer:
+  type:
+    resources:
+      resourceName: Customer
+      dataType: customer
+  post:
+
+  /{id}:
+    type:
+      resources:
+        resourceName: Customer
+        dataType: customer
+    patch:
+    delete:
+     

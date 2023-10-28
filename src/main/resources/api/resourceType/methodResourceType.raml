@@ -1,0 +1,42 @@
+#%RAML 1.0 ResourceType
+
+
+get?:
+  is : [client-id-required,error-responses]
+  description: Retrieve a list of <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          example: <<getExample>>
+
+post?:
+  is : [client-id-required,error-responses]
+  description: Create a new <<resourceName>>
+  body:
+    application/json:
+      type: <<dataType>>
+  responses:
+    201:
+      body:
+        application/json:
+          example:
+            "New <<resourceName>> created!!"
+
+patch?:
+  is : [client-id-required,error-responses]
+  description: Update a specific <<resourceName>> by ID
+  body:
+    application/json:
+      type: <<dataType>>
+  responses:
+    204:
+
+delete?:
+  is : [client-id-required,error-responses]
+  description: Delete a specific <<resourceName>> by ID
+  responses:
+    202:
+      body:
+        application/json:
+          example: <<resourceName>> deleted!!

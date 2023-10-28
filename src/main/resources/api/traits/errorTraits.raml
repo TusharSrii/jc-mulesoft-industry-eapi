@@ -1,0 +1,43 @@
+#%RAML 1.0 Trait
+
+
+responses:
+  400:
+    description: Bad Request
+    body:
+      application/json:
+        example: |
+          {
+            "error":"Bad Request",
+            "errorType":"BAD_REQUEST"
+          }
+
+  401:
+    description: Unauthorized
+    body:
+      application/json:
+        example: |
+          {
+            "error":"You are not authorized to access api",                   
+            "errorType":"UNAUTHORIZED"
+          }
+
+  404:
+    description: Not Found  
+    body:
+      application/json:
+        example: |
+          {
+            "error":"Resources not found",                                    
+            "errorType":"NOT_FOUND"
+          }
+
+  500:
+    description: Internal Server Error
+    body:
+      application/json:
+        example: |
+          {
+            "error":"Internal Server Error",                                  
+            "errorType":"CONNECTIVITY"
+          }
